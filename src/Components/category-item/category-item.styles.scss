@@ -54,6 +54,8 @@
         position: absolute;
 
         h2 {
+            font-family: "Roboto Condensed";
+            font-weight: 400;
             font-weight: bold;
             margin: 0 6px 0;
             font-size: 22px;
@@ -61,8 +63,11 @@
         }
 
         p {
+            font-family: "Roboto Condensed";
+            font-weight: 300;
             font-weight: lighter;
             font-size: 16px;
         }
     }
 }
+
