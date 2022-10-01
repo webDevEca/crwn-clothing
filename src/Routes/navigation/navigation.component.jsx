@@ -2,8 +2,12 @@ import React from "react";
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+import CartIcon from "../../Components/cart-icon/cart-icon.component";
+import CartDropdown from "../../Components/cart-dropdown/cart-dropdown.component";
+
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { UserContext } from "../../contexts/user.contexts";
+import { CartContext } from "../../contexts/cart.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
@@ -11,6 +15,7 @@ import "./navigation_style.scss";
 
 function NavigationBar() {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
@@ -32,7 +37,9 @@ function NavigationBar() {
               <p>SIGN IN</p>
             </Link>
           )}
+          <CartIcon />
         </div>
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
