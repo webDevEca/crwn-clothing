@@ -11,7 +11,12 @@ import { CartContext } from "../../contexts/cart.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
-import "./navigation_style.scss";
+import {
+  NavigationContainer,
+  LogoContainer,
+  NavLinksContainer,
+  NavLink,
+} from "./navigation_style";
 
 function NavigationBar() {
   const { currentUser } = useContext(UserContext);
@@ -19,14 +24,14 @@ function NavigationBar() {
 
   return (
     <Fragment>
-      <div className="nav_bar">
-        <Link className="logo_container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <Logo className="logo" />
-        </Link>
-        <div className="nav_links_container">
-          <Link className="nav_link" to="/shop">
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">
             <p>SHOP</p>
-          </Link>
+          </NavLink>
           {currentUser ? (
             <span className="nav_link" onClick={signOutUser}>
               {""}
@@ -38,9 +43,9 @@ function NavigationBar() {
             </Link>
           )}
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );
