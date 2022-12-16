@@ -20,8 +20,6 @@ function SIgnInForm() {
   const [formFields, setFormFields] = useState(defaultFormField);
   const { email, password } = formFields;
 
-  console.log(formFields);
-
   function resetFormFields() {
     setFormFields(defaultFormField);
   }
