@@ -1,5 +1,5 @@
 import React from "react";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -8,7 +8,7 @@ import CartDropdown from "../../Components/cart-dropdown/cart-dropdown.component
 
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
-import { CartContext } from "../../contexts/cart.context";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
@@ -22,7 +22,7 @@ import {
 
 function NavigationBar() {
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   return (
     <Fragment>
